@@ -1,0 +1,344 @@
+/* ==========================================================================
+   1. VARIABLES Y CONFIGURACIÓN GENERAL (Fuentes del sistema multinavegador)
+   ========================================================================== */
+:root {
+    --bg-main: #F8F9FA;
+    --bg-alt: #E9ECEF;
+    --text-main: #212529;
+    --text-muted: #6C757D;
+    --accent-color: #6B1D2F; /* Tono Vino Garnacha */
+    --accent-light: #8B263E;
+    --white: #FFFFFF;
+    --font-stack: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Desplazamiento fluido entre secciones */
+    font-family: var(--font-stack);
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+body {
+    padding-top: 70px; /* Evita que el menú fijo tape el inicio de las secciones */
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ==========================================================================
+   2. MENÚ DE NAVEGACIÓN (STICKY & RESPONSIVE)
+   ========================================================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px); /* Efecto cristal esmerilado en navegadores modernos */
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.logo {
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--text-main);
+    font-size: 1.2rem;
+    letter-spacing: -0.5px;
+}
+
+.logo span {
+    color: var(--accent-color);
+    font-weight: 300;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 32px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-menu a:hover {
+    color: var(--accent-color);
+}
+
+/* Esconder elementos del menú móvil en escritorio */
+.menu-toggle, .hamburger {
+    display: none;
+}
+
+/* ==========================================================================
+   3. SECCIÓN HERO (PORTADA)
+   ========================================================================== */
+.hero {
+    height: calc(85vh - 70px);
+    min-height: 450px;
+    background: linear-gradient(rgba(33, 37, 41, 0.4), rgba(33, 37, 41, 0.5)), 
+                url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+    padding: 0 24px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    font-weight: 300;
+    margin-bottom: 32px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.9;
+}
+
+.btn-minimal {
+    display: inline-block;
+    padding: 12px 32px;
+    background-color: var(--white);
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-minimal:hover {
+    transform: translateY(-2px);
+    background-color: var(--bg-main);
+}
+
+/* ==========================================================================
+   4. SECCIONES DE CONTENIDO (GRID SYSTEM)
+   ========================================================================== */
+.section-block {
+    padding: 100px 0;
+}
+
+.bg-alt {
+    background-color: var(--bg-alt);
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.section-subtitle {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent-color);
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.section-subtitle.light {
+    color: var(--bg-alt);
+}
+
+h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 24px;
+}
+
+.text-content p {
+    color: var(--text-main);
+    font-size: 1.05rem;
+    margin-bottom: 24px;
+    text-align: justify;
+}
+
+.text-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.text-link:hover {
+    color: var(--accent-light);
+}
+
+.image-content img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+/* SECCIÓN ANCHO COMPLETO (FESTEJOS) */
+.section-full {
+    height: 60vh;
+    min-height: 400px;
+}
+
+
+.full-bg-image {
+    height: 100%;
+    background: linear-gradient(rgba(107, 29, 47, 0.8), rgba(33, 37, 41, 0.85)), 
+                url('festejos.png') center/cover no-repeat fixed;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+}
+
+.full-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px;
+    text-align: center;
+}
+
+.full-content h2 {
+    color: var(--white);
+}
+
+.full-content p {
+    font-size: 1.1rem;
+    opacity: 0.95;
+}
+
+/* ==========================================================================
+   5. FOOTER
+   ========================================================================== */
+footer {
+    background-color: var(--text-main);
+    color: var(--bg-alt);
+    padding: 40px 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   6. RESPONSIVE DESIGN (MÓVILES Y TABLETS)
+   ========================================================================== */
+@media (max-width: 968px) {
+    .grid-2 {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .grid-2.reverse {
+        direction: rtl; /* Hace que la imagen quede arriba del texto en móviles */
+    }
+    
+    .grid-2.reverse .text-content,
+    .grid-2.reverse .image-content {
+        direction: ltr; /* Restaura la dirección del texto */
+    }
+
+    .image-content img {
+        height: 300px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Activación del menú hamburguesa CSS sin JavaScript */
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 24px;
+        height: 18px;
+        cursor: pointer;
+        z-index: 1010;
+    }
+
+    .hamburger span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: var(--text-main);
+        transition: all 0.3s ease;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        height: 0; /* Oculto por defecto */
+        background-color: var(--white);
+        flex-direction: column;
+        gap: 0;
+        align-items: center;
+        overflow: hidden;
+        transition: height 0.3.5s cubic-bezier(0.4, 0, 0.2, 1);
+        border-bottom: 0px solid rgba(0,0,0,0.05);
+    }
+
+    .nav-menu a {
+        width: 100%;
+        text-align: center;
+        padding: 20px 0;
+        border-bottom: 1px solid var(--bg-alt);
+    }
+
+    /* Cuando el checkbox está activo, el menú se despliega */
+    .menu-toggle:checked ~ .nav-menu {
+        height: 290px;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+
+    /* Animación del icono hamburguesa a una "X" al abrir */
+    .menu-toggle:checked ~ .hamburger span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .menu-toggle:checked ~ .hamburger span:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle:checked ~ .hamburger span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
